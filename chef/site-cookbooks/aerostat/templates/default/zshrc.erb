@@ -7,14 +7,16 @@ setopt appendhistory autocd extendedglob
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/english/.zshrc'
+zstyle :compinstall filename '<%= $pilot_home_path%>/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
 # Lines configured by me
-PATH=vendor/bundle/bin:~/bin:$PATH
+export PATH=vendor/bundle/bin:~/bin:$PATH
+export EDITOR=vim
+# export EDITOR=emacs
 
 # Theme from: https://gist.github.com/mislav/1712320
 autoload colors; colors;
@@ -52,10 +54,10 @@ PROMPT='%{$fg[cyan]%}%~% %(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
 
 # Pairing!
 function pairwith(){ 
-  sudo su - copilot -c "gh-auth add $1" 
+  sudo su - <%= $copilot_username %> -c "gh-auth add $1" 
   echo "Tell '$1' to connect using one of the following commands:"
-  echo "[read-only access to session]: \`ssh copilot@aerostat.mikeenglish.net -t wemux\`"
-  echo "[read-write access to session]: \`ssh copilot@aerostat.mikeenglish.net -t wemux pair\`"
+  echo "[read-only access to session]: \`ssh <%= $copilot_username %>@<%= node["aerostat"]["fqdn"]%> -t wemux\`"
+  echo "[read-write access to session]: \`ssh <%= $copilot_username %>@<%= node["aerostat"]["fqdn"]%> -t wemux pair\`"
 }
 function unpair(){sudo su - copilot -c "rm /home/copilot/.ssh/authorized_keys && touch /home/copilot/.ssh/authorized_keys"}
 

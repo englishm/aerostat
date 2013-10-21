@@ -47,8 +47,8 @@ namespace :aero do
   task "selfhost" do
     puts "Preparing aerostat for self-hosted development..."
     # Copy aerostat private key to root authorized_keys
-    puts 'sudo("cat /etc/aerostat/id_rsa.pub >> /root/.ssh/authorized_keys")'
-    sudo("cat /etc/aerostat/id_rsa.pub >> /root/.ssh/authorized_keys")
+    puts "sudo bash -c 'cat /etc/aerostat/id_rsa.pub >> /root/.ssh/authorized_keys'"
+    system("sudo bash -c 'cat /etc/aerostat/id_rsa.pub >> /root/.ssh/authorized_keys'")
     # Create ssh_d + config
     puts 'system("mkdir -p #{ssh_d}")'
     system("mkdir -p #{ssh_d}")
