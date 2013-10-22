@@ -7,8 +7,11 @@ source "http://rubygems.org"
 gem "capistrano"
 gem "capistrano-ext"
 
+# For Digital Ocean
+gem "fog"
+
 # Not required, but may be useful for debugging
-#gem "pry"
+gem "pry"
 
 # Required/Useful for Chef
 gem "chef","11.4.2"
