@@ -3,3 +3,4 @@
 
 # Ruby
 vendor/bundle
+secrets.rb
