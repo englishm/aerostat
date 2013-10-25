@@ -39,6 +39,10 @@ rbenv_execute "rbenv alias --auto" do
   not_if "ls /opt/rbenv/versions/2.0.0"
 end
 
+# Development Libraries
+# Libraries often needed to compile gem native extensions, etc.
+package 'libsqlite3-dev'
+
 # Python
 include_recipe "python"
 
