@@ -53,3 +53,11 @@ template ".gitconfig" do
   group $pilot_username
   mode 00644
 end
+
+cookbook_file ".gitignore_global" do
+  path $pilot_home_path + "/.gitignore_global"
+  source "gitignore_global"
+  owner $pilot_username
+  group $pilot_username
+  mode 00644
+end
