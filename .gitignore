@@ -6,3 +6,4 @@ chef/cookbooks
 chef/site-cookbooks/aerostat/files/default/secrets
 vendor/bundle
 secrets.rb
+*.swp
