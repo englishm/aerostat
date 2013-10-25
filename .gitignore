@@ -5,3 +5,4 @@ packer/debian-7.1.0/packer_cache
 chef/cookbooks
 chef/site-cookbooks/aerostat/files/default/secrets
 vendor/bundle
+secrets.rb

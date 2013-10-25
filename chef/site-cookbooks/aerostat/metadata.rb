@@ -15,3 +15,4 @@ end
 depends 'rbenv'
 depends 'sudo'
 depends 'python'
+depends 'vagrant'
