@@ -1,0 +1,2 @@
+# Erlang
+package "erlang"
