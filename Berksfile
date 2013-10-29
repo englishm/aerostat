@@ -3,6 +3,7 @@
 
 site :opscode
 
+cookbook 'apt', git: 'git://github.com/opscode-cookbooks/apt', ref: 'v2.3.0'
 cookbook 'rbenv', git: 'git://github.com/RiotGames/rbenv-cookbook', ref: '1.6.5'
 cookbook 'sudo', git: 'git://github.com/opscode-cookbooks/sudo', ref: 'v2.2.2'
 cookbook 'python', git: 'git://github.com/opscode-cookbooks/python', ref: 'v1.4.0'

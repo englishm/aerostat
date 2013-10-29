@@ -12,6 +12,7 @@ recipe "default", "Tethered"
     supports os
 end
 
+depends 'apt'
 depends 'rbenv'
 depends 'sudo'
 depends 'python'

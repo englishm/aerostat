@@ -1,4 +1,5 @@
 # Essentials
+include_recipe "apt"
 package "htop"
 package "strace"
 package "lftp"
