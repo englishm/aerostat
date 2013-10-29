@@ -9,4 +9,5 @@ include_recipe "aerostat::proglang_ruby"
 include_recipe "aerostat::proglang_python"
 include_recipe "aerostat::proglang_erlang"
 include_recipe "aerostat::proglang_clojure"
+include_recipe "aerostat::proglang_c"
 
