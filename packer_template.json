@@ -1,0 +1,18 @@
+{
+  "builders": [
+    {
+      "type": "digitalocean",
+      "image_id": 308287,
+      "region_id": 4,
+      "size_id": 66,
+      "snapshot_name": "aerostat_{{timestamp}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "chef-solo",
+      "cookbook_paths": ["chef/cookbooks","chef/site-cookbooks"],
+      "run_list": ["recipe[aerostat]"]
+    }
+  ]
+}
