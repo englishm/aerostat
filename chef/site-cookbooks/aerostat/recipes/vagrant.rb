@@ -17,3 +17,6 @@ end
 vagrant_plugin "vagrant-digitalocean" do
   user $pilot_username
 end
+vagrant_plugin "vagrant-triggers" do
+  user $pilot_username
+end
