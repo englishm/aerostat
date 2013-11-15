@@ -7,3 +7,7 @@ ark 'valgrind' do
   action :install_with_make
   not_if do ::File.exists?('/usr/local/bin/valgrind') end
 end
+
+# LLVM and clang for fun, new LLVM/clang-stuff
+package "llvm"
+package "clang"
