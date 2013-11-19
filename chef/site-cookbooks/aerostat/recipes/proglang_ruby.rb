@@ -24,6 +24,16 @@ end
 rbenv_gem "github-auth" do
   ruby_version "2.0.0-p247"
 end
+rbenv_gem "pivotal_git_scripts" do
+  ruby_version "2.0.0-p247"
+end
+rbenv_gem "pivotal_git_scripts" do
+  ruby_version "1.9.3-p392"
+end
+rbenv_gem "pivotal_git_scripts" do
+  ruby_version "1.8.7-p371"
+end
+
 # rbenv-alias
 git "/opt/rbenv/plugins/rbenv-aliases" do
   repository "https://github.com/tpope/rbenv-aliases"
