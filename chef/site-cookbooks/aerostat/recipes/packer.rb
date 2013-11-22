@@ -6,3 +6,9 @@ ark 'packer' do
   path '/usr/local/bin'
   creates '/usr/local/bin/packer'
 end
+
+# QEMU
+
+package 'qemu'
+package 'qemu-kvm'
+
