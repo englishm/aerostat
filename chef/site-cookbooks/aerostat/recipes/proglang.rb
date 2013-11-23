@@ -11,4 +11,5 @@ include_recipe "aerostat::proglang_erlang"
 include_recipe "aerostat::proglang_clojure"
 include_recipe "aerostat::proglang_c"
 include_recipe "aerostat::proglang_go"
+include_recipe "aerostat::proglang_scheme"
 
