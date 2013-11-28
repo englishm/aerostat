@@ -11,3 +11,6 @@ end
 # LLVM and clang for fun, new LLVM/clang-stuff
 package "llvm"
 package "clang"
+
+# Docs
+package "manpages-dev"
