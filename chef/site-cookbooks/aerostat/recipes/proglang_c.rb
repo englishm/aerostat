@@ -14,3 +14,6 @@ package "clang"
 
 # Docs
 package "manpages-dev"
+
+# Debugging, tuning, etc.
+package "linux-tools-3.2"
