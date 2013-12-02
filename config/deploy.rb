@@ -2,7 +2,6 @@
 
 require "capistrano/ext/multistage"
 
-set :chef_binary, "/usr/bin/chef-solo"
 set :stages, Dir.entries(File.join(File.dirname(__FILE__),"deploy")).map{|item|item[/(.*?)(?=.rb)/]}.compact
 set :default_stage, "vagrant"
 set :use_sudo, true
@@ -10,7 +9,8 @@ set :ssh_d, File.join(Dir.home,".ssh","aerostat")
 default_run_options[:pty] = true 
 ssh_options[:forward_agent] = true
 ssh_options[:config] = Dir.glob("#{ssh_d}/*")
-set :chef_binary, "/usr/bin/chef-solo"
+# set :chef_binary, "/usr/bin/chef-solo"
+set :chef_binary, "/usr/bin/chef-client -z"
 
 namespace :ssh do
   desc "Create SSH configuration file for {stage}. (Vagrant only)"
@@ -47,9 +47,9 @@ namespace :bootstrap do
     set :hostname, Net::SSH::Config.for("#{stage}", ssh_options[:config])[:host_name]
     set :hostport, Net::SSH::Config.for("#{stage}", ssh_options[:config])[:port] || 22
     if exists?(:id_file)
-      system("cd chef && knife bootstrap --bootstrap-version '11.4.2' -d chef-solo -x #{user} -i #{id_file} --sudo #{hostname} -p #{hostport}")
+      system("cd chef && knife bootstrap --bootstrap-version '11.8.0' -d chef-solo -x #{user} -i #{id_file} --sudo #{hostname} -p #{hostport}")
     else
-      system("cd chef && knife bootstrap --bootstrap-version '11.4.2' -d chef-solo -x #{user} --sudo #{hostname} -p #{hostport}")
+      system("cd chef && knife bootstrap --bootstrap-version '11.8.0' -d chef-solo -x #{user} --sudo #{hostname} -p #{hostport}")
     end
   end
 end
@@ -71,14 +71,14 @@ namespace :chef do
       run("rm -rf /root/chef")
       run("mkdir -p /root/chef")
       run("tar xzf 'chef.tar.gz' -C /root/chef")
-      sudo("/bin/bash -c 'cd /root/chef && #{chef_binary} -c solo.rb -j #{stage}.json -N #{stage} --color'")
+      sudo("/bin/bash -c 'cd /root/chef && #{chef_binary} -c local.rb -j #{stage}.json -N #{stage} --color'")
     else 
       system("tar czf 'chef.tar.gz' -C chef/ .")
       upload("chef.tar.gz","/home/#{user}",:via => :scp)
       run("rm -rf /home/#{user}/chef")
       run("mkdir -p /home/#{user}/chef")
       run("tar xzf 'chef.tar.gz' -C /home/#{user}/chef")
-      sudo("/bin/bash -c 'cd /home/#{user}/chef && #{chef_binary} -c solo.rb -j #{stage}.json -N #{stage} --color'")
+      sudo("/bin/bash -c 'cd /home/#{user}/chef && #{chef_binary} -c local.rb -j #{stage}.json -N #{stage} --color'")
     end
   end
 end
