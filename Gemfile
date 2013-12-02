@@ -4,7 +4,7 @@
 source "http://rubygems.org"
 
 # Required for capistrano
-gem "capistrano"
+gem "capistrano", "2.15.4"
 gem "capistrano-ext"
 
 # For Digital Ocean
