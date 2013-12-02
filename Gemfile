@@ -14,6 +14,6 @@ gem "fog"
 gem "pry"
 
 # Required/Useful for Chef
-gem "chef","11.4.2"
+gem "chef", "11.8.0"
 gem "berkshelf"
 gem "foodcritic"
