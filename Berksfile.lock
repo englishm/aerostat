@@ -1,10 +1,56 @@
-cookbook 'rbenv', :git => 'git://github.com/RiotGames/rbenv-cookbook', :ref => '1ce45ff1c0ae5165d583dd350a5ec1cc96c1ac12'
-cookbook 'git', :locked_version => '2.6.0'
-cookbook 'dmg', :locked_version => '2.0.0'
-cookbook 'build-essential', :locked_version => '1.4.0'
-cookbook 'yum', :locked_version => '2.3.0'
-cookbook 'windows', :locked_version => '1.10.0'
-cookbook 'chef_handler', :locked_version => '1.1.4'
-cookbook 'runit', :locked_version => '1.1.6'
-cookbook 'apt', :locked_version => '2.0.0'
-cookbook 'ohai', :locked_version => '1.1.10'
+{
+  "sources": {
+    "apt": {
+      "locked_version": "2.0.0"
+    },
+    "rbenv": {
+      "locked_version": "1.6.4",
+      "git": "git://github.com/RiotGames/rbenv-cookbook",
+      "ref": "1ce45ff1c0ae5165d583dd350a5ec1cc96c1ac12"
+    },
+    "sudo": {
+      "locked_version": "2.2.1",
+      "git": "git://github.com/opscode-cookbooks/sudo",
+      "ref": "fc9bd4aa1276313c680c0346618a49eaf55f9c11"
+    },
+    "python": {
+      "locked_version": "1.4.0",
+      "git": "git://github.com/opscode-cookbooks/python",
+      "ref": "4c873e07ab1a042a0c283a958f4b1b1e1ae29abf"
+    },
+    "vagrant": {
+      "locked_version": "0.2.0",
+      "git": "git://github.com/oker1/vagrant-cookbook",
+      "ref": "39bbe5952ae0c8065d251a344d1479bdc013c59f"
+    },
+    "ark": {
+      "locked_version": "0.4.0",
+      "git": "git://github.com/opscode-cookbooks/ark",
+      "ref": "3b4b4ab219ba7767875a36dafda04d61e879db4f"
+    },
+    "git": {
+      "locked_version": "2.7.0"
+    },
+    "dmg": {
+      "locked_version": "2.0.4"
+    },
+    "build-essential": {
+      "locked_version": "1.4.2"
+    },
+    "yum": {
+      "locked_version": "2.3.4"
+    },
+    "windows": {
+      "locked_version": "1.11.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "runit": {
+      "locked_version": "1.3.0"
+    },
+    "ohai": {
+      "locked_version": "1.1.12"
+    }
+  }
+}
