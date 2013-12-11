@@ -46,3 +46,16 @@ rbenv_execute "rbenv alias --auto" do
   user "rbenv"
   not_if "ls /opt/rbenv/versions/2.0.0"
 end
+
+# bundler config
+directory "#{$pilot_home_path}/.bundle" do
+  owner $pilot_username
+end
+cookbook_file "bundle_config" do
+  path $pilot_home_path + "/.bundle/config"
+  source "bundle_config"
+  owner $pilot_username
+  group $pilot_username
+  mode 00644
+end
+
