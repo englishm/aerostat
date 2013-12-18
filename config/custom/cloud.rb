@@ -29,6 +29,19 @@ namespace :digitalocean do
     # droplet = compute_service.servers.find{|s| s.name == "aerostat" }
     # droplet.destroy
   end
+
+  desc "REPL with digitalocean compute service object available."
+  task "repl" do
+    require 'fog'
+    require 'pry'
+    compute_service = Fog::Compute.new({
+      :provider => 'digitalocean',
+      :digitalocean_api_key => $aerostat_secrets[:digitalocean_api_key],
+      :digitalocean_client_id => $aerostat_secrets[:digitalocean_client_id],
+    })
+    binding.pry
+  end
+
 end
 
 namespace :dnsimple do
